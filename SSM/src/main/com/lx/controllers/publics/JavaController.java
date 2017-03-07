@@ -29,20 +29,20 @@ public class JavaController extends AbstractController{
 	@RequestMapping(value = { "java.htm" })
 	public String java(Model model) {
 		log.info("java Start");
-		User user = userService.findById(1l);
-		System.out.println(userService.getModelClass());
-		model.addAttribute("userName", user.getName());
-		log.info("java end" + user.getName());
+//		User user = userService.findById(1l);
+//		System.out.println(userService.getModelClass());
+//		model.addAttribute("userName", user.getName());
+//		log.info("java end" + user.getName());
 		return "tiles.view.body.java";
 	}
 	
 	@RequestMapping(value = { "mysql.htm" })
 	public String mysql(Model model) {
 		log.info("java Start");
-		User user = userService.findById(1l);
-		System.out.println(userService.getModelClass());
-		model.addAttribute("userName", user.getName());
-		log.info("java end" + user.getName());
+//		User user = userService.findById(1l);
+//		System.out.println(userService.getModelClass());
+//		model.addAttribute("userName", user.getName());
+//		log.info("java end" + user.getName());
 		return "tiles.view.body.mysql";
 	}
 	
@@ -86,16 +86,16 @@ public class JavaController extends AbstractController{
 	@RequestMapping(value = { "formtest.htm" })
 	public String formtest(Model model){
 		log.info("java Start");
-		User user = userService.findById(1l);
-		
-		user.setName("qb\r\n123");
-		
-		try {
-			model.addAttribute("user", getJsonString(user));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		User user = userService.findById(1l);
+//		
+//		user.setName("qb\r\n123");
+//		
+//		try {
+//			model.addAttribute("user", getJsonString(user));
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		log.info("java end");
 		return "tiles.view.body.java";
 	}

@@ -23,30 +23,36 @@ public class UserServiceImpl extends AbstractService<User, Long>implements UserS
 
 	@Autowired
 	private UserDao userDao;
-	
-	@Override
-	public Dao<User, Long> getDao() {
-		return userDao;
-	}
 
 	@Override
-	@Transactional(readOnly=false, rollbackFor=Exception.class)
 	public PageData<User> serchUsers(User user, int currentPage) {
-		Map<String,Object> FieldsMap = new HashMap<>();
-		if(StringUtils.isNotEmpty(user.getName())){
-			FieldsMap.put("name", "%"+user.getName()+"%");
-		}
-		if(StringUtils.isNotEmpty(user.getSlogan())){
-			FieldsMap.put("slogan", "%"+user.getSlogan()+"%");
-		}
-		Long sizeOfAll = userDao.getCountByFields(FieldsMap, true);
-		PageData<User> pageData = new PageData<User>(currentPage);
-		if(sizeOfAll>0){
-			List<User> userList = userDao.getOffsetLimitOrderListByFields(FieldsMap, "id", "asc", pageData.getPerPageNum(), pageData.getOffset(currentPage), true);
-			pageData.setData(sizeOfAll, userList);
-		}
-		return pageData;
+		// TODO Auto-generated method stub
+		return null;
 	}
+	
+//	@Override
+//	public Dao<User, Long> getDao() {
+//		return userDao;
+//	}
+//
+//	@Override
+//	@Transactional(readOnly=false, rollbackFor=Exception.class)
+//	public PageData<User> serchUsers(User user, int currentPage) {
+//		Map<String,Object> FieldsMap = new HashMap<>();
+//		if(StringUtils.isNotEmpty(user.getName())){
+//			FieldsMap.put("name", "%"+user.getName()+"%");
+//		}
+//		if(StringUtils.isNotEmpty(user.getSlogan())){
+//			FieldsMap.put("slogan", "%"+user.getSlogan()+"%");
+//		}
+//		Long sizeOfAll = userDao.getCountByFields(FieldsMap, true);
+//		PageData<User> pageData = new PageData<User>(currentPage);
+//		if(sizeOfAll>0){
+//			List<User> userList = userDao.getOffsetLimitOrderListByFields(FieldsMap, "id", "asc", pageData.getPerPageNum(), pageData.getOffset(currentPage), true);
+//			pageData.setData(sizeOfAll, userList);
+//		}
+//		return pageData;
+//	}
 
 //	@Transactional(readOnly=false, rollbackFor=Exception.class)
 //	public String searchPostAreaCode(String postAreaCode,String postAreaName,int page) throws Exception{

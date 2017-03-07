@@ -5,8 +5,6 @@ import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -51,12 +49,12 @@ public class CheckConfigs implements ApplicationContextAware {
 	}
 	 
 	private void checkDataSoucesContects(){
-		try(Session session = userDao.openSession())
-		{
-			Transaction t = session.beginTransaction();
-			t.commit();
-		}catch (Exception e) {
-			log.error(e.getMessage(), e);
-		}
+//		try(Session session = userDao.openSession())
+//		{
+//			Transaction t = session.beginTransaction();
+//			t.commit();
+//		}catch (Exception e) {
+//			log.error(e.getMessage(), e);
+//		}
 	}
 }

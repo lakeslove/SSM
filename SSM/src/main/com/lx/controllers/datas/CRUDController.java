@@ -46,17 +46,17 @@ public class CRUDController extends AbstractController{
 	
 	@RequestMapping(value = { "editUser.htm" })
 	public String editUser(Model model,Long userId) throws JsonGenerationException, JsonMappingException, IOException {
-		User user = userService.findById(userId);
-		model.addAttribute("user", user);
+//		User user = userService.findById(userId);
+//		model.addAttribute("user", user);
 		return "tiles.view.body.userMessage";
 	}
 	
 	@RequestMapping(value = { "saveUser.htm" })
 	public String saveUser(@ModelAttribute User user) throws JsonGenerationException, JsonMappingException, IOException {
 		if(user.getId()!=null){
-			userService.update(user);
+//			userService.update(user);
 		}else{
-			userService.save(user);
+//			userService.save(user);
 		}
 //		return "redirect:editUser.htm?userId="+user.getId();
 		return "redirect:crud.htm";
@@ -65,7 +65,7 @@ public class CRUDController extends AbstractController{
 	@RequestMapping(value = { "deleteUser.htm" })
 	public String saveUser(Long userId) throws JsonGenerationException, JsonMappingException, IOException {
 		if(userId!=null){
-			userService.deleteById(userId);;
+//			userService.deleteById(userId);;
 		}
 //		return "redirect:editUser.htm?userId="+user.getId();
 		return "redirect:crud.htm";
