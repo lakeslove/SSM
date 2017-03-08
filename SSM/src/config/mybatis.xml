@@ -18,14 +18,13 @@
 	
 	<!-- 别名设置 -->
 	<typeAliases>
-		<typeAlias alias="role" type="com.learn.lx.pojo.Role"/>
-		<typeAlias alias="user" type="com.learn.lx.pojo.User"/>
+		<!-- <typeAlias alias="role" type="com.learn.lx.pojo.Role"/> -->
+		<typeAlias alias="user" type="com.lx.models.User"/>
 	</typeAliases>
 	
 	<!-- 指定映射器 -->
 	<mappers>
-		<mapper resource="com/learn/lx/dao/role.xml"/>
-		<mapper resource="com/learn/lx/dao/user.xml"/>
+		<mapper resource="com/lx/daos/impl/user.xml"/>
 	</mappers>
 	
 </configuration>

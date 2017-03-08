@@ -31,8 +31,7 @@
 	<task:annotation-driven executor="taskExecutor" scheduler="scheduler" />
 	<!-- 需要扫描的包 start-->
 	<context:component-scan base-package="com.lx.controllers" />
-	<context:component-scan base-package="com.lx.daos.hibernate" />
-	<context:component-scan base-package="com.lx.services.hibernate" />
+	<context:component-scan base-package="com.lx.services.impl" />
 	<!-- 需要扫描的包 end -->
  	
  	<!-- viewResolver start -->
@@ -124,49 +123,6 @@
 		<property name="annotationClass" value="org.springframework.stereotype.Repository"/>
 	</bean>
 	
-	<!-- sessionFactory start -->
-<!-- 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="com.lx.models" />
-		<property name="annotatedPackages">
-			<list>
-				<value>com.lx.models</value>
-			</list>
-		</property>
-		<property name="hibernateProperties">
-			<value>
-				hibernate.dialect=org.hibernate.dialect.MySQLDialect
-				hibernate.show_sql=true
-				hibernate.jdbc.batch_size=20
-				hibernate.autoReconnect=true
-			</value>
-		</property>
-	</bean> -->
-	
-	<!-- transaction config -->
-	<!-- <bean id="transactionManager"
-		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean> -->
-
-	<!-- transaction config proxy start-->
-	<!-- <bean id="transactionProxy"
-		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
-		abstract="true">
-		<property name="transactionManager" ref="transactionManager"></property>
-		<property name="transactionAttributes">
-			<props>
-				<prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>
-				<prop key="modify*">PROPAGATION_REQUIRED,-myException</prop>
-				<prop key="del*">PROPAGATION_REQUIRED</prop>
-				<prop key="*">PROPAGATION_REQUIRED</prop>
-			</props>
-		</property>
-	</bean> -->
-	<!-- transaction config proxy end-->
-	<!-- hibernate end -->
-	
 	<!-- 国际化（多语言对应） 开始 -->
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
@@ -184,12 +140,6 @@
 	<!-- 国际化（多语言对应） 结束-->
 	
 	<!-- 数据验证 start -->
-	<mvc:annotation-driven validator="validator"/>
-	<bean id="validator"
-		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-		<property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
-		<property name="validationMessageSource" ref="messageSource" />
-	</bean>
 	<!-- 数据验证 end -->
 	
 	<!-- 异常处理 start -->
@@ -260,16 +210,16 @@
 	
 	<!-- IOC demo start -->
 	<!-- springFrome initiate check start -->
-	<bean class="com.lx.utils.CheckConfigs">
+	<!-- <bean class="com.lx.utils.CheckConfigs">
 		<property name="dbUrl" value="${db.url}" />
 		<property name="userDao">
-			<bean class="com.lx.daos.hibernate.UserDaoImpl" /> 
+			<bean class="com.lx.daos.impl.UserDaoImpl" /> 
 		</property>
-	</bean>
+	</bean> -->
 	<!-- initiate check end -->
 	
 	<!-- 在过滤器中注入service start-->
-	<bean id="userService" class="com.lx.services.hibernate.UserServiceImpl"></bean>
+	<bean id="userService" class="com.lx.services.impl.UserServiceImpl"></bean>
 	<!-- 在过滤器中注入service end-->
 	
 	<!-- IOC demo end-->

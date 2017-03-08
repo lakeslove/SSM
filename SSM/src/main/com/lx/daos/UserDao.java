@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Repository;
 
-import com.learn.lx.pojo.User;
+import com.lx.models.User;
 
 @Repository
 public interface UserDao {
