@@ -33,7 +33,7 @@ public class JavaController extends AbstractController{
 //		System.out.println(userService.getModelClass());
 //		model.addAttribute("userName", user.getName());
 //		log.info("java end" + user.getName());
-		return "tiles.view.body.java";
+		return "tiles.view.body.javas";
 	}
 	
 	@RequestMapping(value = { "mysql.htm" })

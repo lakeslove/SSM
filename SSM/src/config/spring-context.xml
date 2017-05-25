@@ -33,7 +33,10 @@
 	<context:component-scan base-package="com.lx.controllers" />
 	<context:component-scan base-package="com.lx.services.impl" />
 	<!-- 需要扫描的包 end -->
- 	
+	
+ 	<mvc:annotation-driven />
+ 	<!-- 数据验证 start -->
+	<!-- 数据验证 end -->
  	<!-- viewResolver start -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="order" value="2" />
@@ -138,9 +141,6 @@
 		<property name="cacheSeconds" value="600" />
 	</bean>
 	<!-- 国际化（多语言对应） 结束-->
-	
-	<!-- 数据验证 start -->
-	<!-- 数据验证 end -->
 	
 	<!-- 异常处理 start -->
 	<!-- <bean class="com.lx.exceptions.ExceptionHandler" /> -->
